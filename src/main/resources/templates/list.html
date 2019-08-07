@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Add Content</a><br />
+
+
+<!--Title :<span th:text="${course.title}" ></span><br />
+Instructor :<span th:text="${course.instructor}" ></span><br />
+Description :<span th:text="${course.description}" ></span><br />
+Credits :<span th:text="${course.credit}" ></span><br />   -->
+<table>
+<tr th:each="bullhorn : ${bullhorns}">
+    <!--Title :<span th:text="${bullhorn.title}" ></span><br />-->
+    <br /><br /><br />
+    Title: <textarea rows="1" cols="160" disabled th:text="${bullhorn.title}" />
+    Date Posted :<span th:text="${bullhorn.postedDate}" ></span><br />
+    <!--Content :<span th:text="${bullhorn.content}" ></span><br />-->
+    Content :<textarea rows="4" cols="160" disabled th:text="${bullhorn.content}"></textarea><br /><br />
+    Sent By :<span th:text="${bullhorn.sentBy}" ></span><br /><br />
+    <a th:href="@{/update/{id}(id=${bullhorn.id})}">Update</a> -
+    <a th:href="@{/detail/{id}(id=${bullhorn.id})}">Details</a> -
+    <a th:href="@{/delete/{id}(id=${bullhorn.id})}">Delete</a>
+</tr>
+
+
+
+    <br />
+<br />
+
+</tr>
+</table>
+
+<!--<tr th:each="course : ${courses}">
+    <td th:text="${course.title}"></td>
+    <td th:text="${course.instructor}"></td>
+    <td th:text="${course.credit}"></td>
+    <td>
+        <a th:href="@{/update/{id}(id=${course.id})}">Update</a> -
+        <a th:href="@{/detail/{id}(id=${course.id})}">Details</a> -
+        <a th:href="@{/delete/{id}(id=${course.id})}">Delete</a>
+    </td></tr>
+
+-->
+
+<!--<table>
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Posted Date</th>
+        <th>Sent By</th>
+
+    </tr>
+    <tr th:each="bullhorn : ${bullhorns}">
+        <td th:text="${bullhorn.title}"></td>
+        <td th:text="${bullhorn.content}"></td>
+        <td th:text="${bullhorn.postedDate}"></td>
+        <td th:text="${bullhorn.sentBy}"></td>
+    </tr>
+</table>   -->
+
+
+</body>
+</html>
+
